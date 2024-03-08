@@ -1,0 +1,31 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.contents {
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3rem/* 24px */;
+    padding-bottom: 3rem;
+    padding-left: 2rem/* 16px */;
+    padding-right: 2rem;
+}
+
+.list {
+    width: 33%;
+    /* height: 100vh; */
+    flex-direction: column;
+    display: flex;
+    border-right: groove white 1px;
+    border-top: groove white 1px;
+    overflow-y: scroll;
+}
+
+.item {
+    width: auto;
+    /* height: 100vh; */
+    flex-direction: column;
+    display: flex;
+}
