@@ -1,14 +1,30 @@
 <div class="contents">
-    <!-- <button (click)="updateDocuments()">Update Document</button>
-    <div class="row">
-      <div class="list">
-        <div *ngFor="let document of documents; let i = index;">
-          {{i + 1}}. {{document}}
+  <div class="grid">
+    <div class="item" *ngIf="getScreenWidth < 768">
+      <img src="../../assets/images/logo.svg" width="120" style="margin-bottom: -4rem;" alt="">
+      <img src="../../assets/images/pokemons.svg" width="400" alt="">
+    </div>
+    <div class="item">
+      <img *ngIf="getScreenWidth >= 768" src="../../assets/images/logo.svg" width="120" style="margin-bottom: -4rem;" alt="">
+      <h1 style="margin-bottom: -1rem; font-size: 3rem;">Explore o mundo<br>
+        dos <span style="color: #EA686D;">Pokémons</span></h1>
+      <p style="font-size: 1.5rem;">Descubra todas as espécies de Pokémons</p>
+      <input class="input-custom" type="text"><button class="btn-search"><b>Buscar</b>  </button>
+    </div>
+    <div class="item" *ngIf="getScreenWidth >= 768">
+      <img src="../../assets/images/pokemons.svg" width="400" alt="">
+    </div>
+  </div>
+  <div class="item">
+    <h2>Mais procurados</h2>
+    <div class="carousel">
+      <button class="carousel-button prev" (click)="prevSlide()">❮</button>
+      <div class="carousel-container" [ngStyle]="{'transform': 'translateX(' + (-currentIndex * itemWidth) + 'px)'}">
+        <div class="carousel-item" *ngFor="let item of items; let i = index" [ngClass]="{'active': i >= currentIndex && i < currentIndex + itemsPerPage}">
+          {{ item }}
         </div>
-      </div> -->
-      <div class="item">
-        <img src="../../assets/images/logo.svg" width="180" alt="">
-        this is an item
       </div>
-    <!-- </div> -->
+      <button class="carousel-button next" (click)="nextSlide()">❯</button>
+    </div>
+  </div>
 </div>
