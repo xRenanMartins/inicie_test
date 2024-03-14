@@ -20,8 +20,8 @@
     <div class="carousel">
       <button class="carousel-button prev" (click)="prevSlide()">❮</button>
       <div class="carousel-container" [ngStyle]="{'transform': 'translateX(' + (-currentIndex * itemWidth) + 'px)'}">
-        <div class="carousel-item" *ngFor="let item of items; let i = index" [ngClass]="{'active': i >= currentIndex && i < currentIndex + itemsPerPage}">
-          {{ item }}
+        <div class="carousel-item" *ngFor="let item of data; let i = index" [ngClass]="{'active': i >= currentIndex && i < currentIndex + itemsPerPage}">
+          <h4>{{ firstLetterUpper(item.name)}}</h4>
         </div>
       </div>
       <button class="carousel-button next" (click)="nextSlide()">❯</button>

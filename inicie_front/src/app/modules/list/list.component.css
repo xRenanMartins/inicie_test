@@ -71,10 +71,10 @@
 }
 
 .carousel-item {
-  min-width: calc(100% / 5); /* 5 itens por vez */
+  min-width: calc(100% / 5);  /* 5 itens por vez */
   box-sizing: border-box;
   text-align: center;
-  padding: 20px;
+  /* padding: 20px; */
   background-color: #FBFDFF;
   margin-left: 1.5rem;
 }
