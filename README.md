@@ -16,3 +16,5 @@ Para instalar e rodar o front execute os seguintes comandos:
     cd inicie_front
     npm install
     ng serve
+
+- [ ] A listagem da API dos Pokemons os dados como está no requisito.
