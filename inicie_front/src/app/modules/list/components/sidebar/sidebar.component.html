@@ -1,0 +1,31 @@
+<div class="wrapper" *ngIf="showSide" (openSidebar)="openSidebar()" (onHide)="closeSidebar()">
+    <div [ngClass]="{'sidebar': true, 'sidebar-open': showSide}">
+        <button (click)="closeSidebar()" class="close-btn">X</button>
+        <h2>{{ item.name }}</h2>
+        <div class="text-center">
+          <img width="200" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="">
+        </div>
+        <div class="container-chart">
+            <h3>Status</h3>
+            <div class="chart">
+                <div class="bar vida" style="--vida: 20%;">
+                  <div class="label">Vida</div>
+                </div>
+                <div class="bar defesa" style="--defesa: 50%;">
+                  <div class="label">Defesa</div>
+                </div>
+                <div class="bar velocidade" style="--velocidade: 80%;">
+                  <div class="label">Velocidade</div>
+                </div>
+                <div class="bar ataque" style="--ataque: 20%;">
+                  <div class="label">Ataque</div>
+                </div>
+              </div>
+        </div>
+        <div class="container-chart">
+            <h3>Informações</h3>
+            <li class="list-style">Altura: {{ item.game_indices.height }}</li>
+            <li class="list-style">Peso: {{ item.weight }}</li>
+        </div>
+    </div>
+</div>

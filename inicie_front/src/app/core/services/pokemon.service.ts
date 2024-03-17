@@ -26,7 +26,7 @@ export class PokemonService {
     });
   }
 
-  showPokemon(payload: any, id: any): Observable<any> {
+  showPokemon(id: any): Observable<any> {
     return this.http.get(`${environment.url_ms}/pokemon/${id}/show`);
   }
 }

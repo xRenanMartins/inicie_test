@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './modules/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SidebarComponent } from './modules/list/components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     
   ],
-  providers: [],
+  exports: [
+    SidebarComponent,
+  ],
+  providers: [SidebarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

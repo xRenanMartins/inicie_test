@@ -1,0 +1,131 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.open-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  /* color: #ccc; */
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 285px;
+  height: 100%;
+  background-color: #fff;
+  padding-top: 20px;
+  transition: 0.5s;
+}
+
+.sidebar h2 {
+  padding: 1rem 0 0 1rem;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  text-align: center;
+}
+
+/*   
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #333;
+  } */
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  /* color: white; */
+  border: none;
+  cursor: pointer;
+}
+
+.content {
+  margin-right: 0;
+  padding: 20px;
+}
+
+.sidebar-open {
+  right: 0;
+  z-index: 999;
+}
+
+
+.container-chart {
+  padding: 0 0 0 1rem;
+}
+
+.chart {
+  width: 15rem;
+  height: 12rem;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 2rem;
+  background-color: lightgray;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #A2A9B0;
+  font-size: 12px;
+}
+
+.vida {
+  height: var(--vida);
+  background-color: #C4F789;
+}
+
+.defesa {
+  height: var(--defesa);
+  background-color: #F7802A;
+}
+
+.velocidade {
+  height: var(--velocidade);
+  background-color: #49D0B0;
+}
+
+.ataque {
+  height: var(--ataque);
+  background-color: #EA686D;
+}
+
+.list-style {
+  list-style: none;
+}
+
+.text-center {
+  text-align: center;
+}

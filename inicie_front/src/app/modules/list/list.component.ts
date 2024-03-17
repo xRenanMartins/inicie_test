@@ -15,11 +15,15 @@ export class ListComponent implements OnInit {
   itemWidth: number = 0;
   params: any = {
     // nome: '',
+    page: 0,
     length: 20,
   };
   isLoading = false;
   total = 0;
   data: any = [];
+  itemView: any = [];
+  showSide: boolean = false;
+  itemParam: any = [];
 
   constructor(private pokemonService: PokemonService){
   }
@@ -28,18 +32,15 @@ export class ListComponent implements OnInit {
     this.getScreenWidth = window.innerWidth;
     this.itemWidth = 100 / this.itemsPerPage;
     console.log(this.getScreenWidth);
-    this.load('');
+    this.load();
     console.log(this.data);
   }
 
 
   nextSlide() {
-    this.currentIndex += this.itemsPerPage;
-    if (this.currentIndex > this.items.length) {
-      this.currentIndex = 0;
-    }
-    console.log(this.items.length)
+    this.currentIndex++;
     console.log(this.currentIndex)
+    this.load(this.currentIndex)
   }
 
   prevSlide() {
@@ -50,13 +51,10 @@ export class ListComponent implements OnInit {
     }
   }
 
-  load(isSearch: any) {
-    if (isSearch) {
-      // this.paginate.page = 1;
-    }
+  load(page: any = 0) {
+
     this.isLoading = true;
-    // this.params.page = this.paginate.page;
-    // this.params.length = this.paginate.perPage;
+    this.params.page = page;
 
     this.pokemonService
       .listPokemon(this.params)
@@ -66,6 +64,7 @@ export class ListComponent implements OnInit {
           this.data = data.data.results;
           this.total = data.data.count;
           console.log(this.data)
+          this.isLoading = false;
         },
         error: () => {
           this.isLoading = false;
@@ -78,6 +77,31 @@ export class ListComponent implements OnInit {
 
   firstLetterUpper(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  }
+
+  openSide(id: any){
+    this.showSide = true;
+    this.show(id.charAt(id.length-2));
+  }
+
+  show(id: any) {
+    this.itemView = [];
+    this.pokemonService
+      .showPokemon(id)
+      .pipe(take(1))
+      .subscribe({
+        next: (data: any) => {
+          this.itemParam = data.data;
+          console.log(this.itemParam)
+          this.isLoading = false;
+        },
+        error: () => {
+          this.isLoading = false;
+        },
+        complete: () => {
+          this.isLoading = false;
+        },
+      });
+  }
 
 }

@@ -19,8 +19,8 @@
     <h2>Mais procurados</h2>
     <div class="carousel">
       <button class="carousel-button prev" (click)="prevSlide()">❮</button>
-      <div class="carousel-container" [ngStyle]="{'transform': 'translateX(' + (-currentIndex * itemWidth) + 'px)'}">
-        <div class="carousel-item" *ngFor="let item of data; let i = index" [ngClass]="{'active': i >= currentIndex && i < currentIndex + itemsPerPage}">
+      <div  class="carousel-container" [ngStyle]="{'transform': 'translateX(' + (-currentIndex * itemWidth) + 'px)'}">
+        <div (click)="openSide(item.url)" class="carousel-item" *ngFor="let item of data; let i = index" [ngClass]="{'active': i >= currentIndex && i < currentIndex + itemsPerPage}">
           <h4>{{ firstLetterUpper(item.name)}}</h4>
         </div>
       </div>
@@ -28,3 +28,4 @@
     </div>
   </div>
 </div>
+<app-sidebar [showSide]="showSide" [id]="itemParam" (closeSide)="showSide = false"></app-sidebar>

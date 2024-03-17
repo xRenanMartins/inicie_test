@@ -12,9 +12,9 @@ class PokemonController extends Controller
     public function index(Request $request){
         try{
             $limit = $request->limit ?? 20;
-            $offset = $request->offset ?? 0;
+            $page = $request->page ?? 0;
 
-            $response = Http::get("https://pokeapi.co/api/v2/pokemon?limit=$limit&offset=$offset")->json();
+            $response = Http::get("https://pokeapi.co/api/v2/pokemon?limit=$limit&offset=$page")->json();
             return ApiResponse::sendResponse($response);
         }catch(Exception $exception) {
             return ApiResponse::sendError($exception);
